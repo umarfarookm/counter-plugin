@@ -1,6 +1,6 @@
 {
   "name": "html-number-spinner",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "increment and decrement a number",
   "main": "plugin.js",
   "scripts": {
