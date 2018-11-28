@@ -20,7 +20,3 @@ Please see the styled spinner component as below,
 *Step 2:*
 
     $('.counter').htmlNumberSpinner()
-    
-###Keywords
-
-    html-number-spinner

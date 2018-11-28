@@ -1,5 +1,5 @@
 (function($) {
-    $.fn.numberSpinner = function () {
+    $.fn.htmlNumberSpinner = function () {
         var inputValue = 0;
 
         /*creating the counter buttons*/
