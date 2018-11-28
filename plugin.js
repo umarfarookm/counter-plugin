@@ -20,5 +20,3 @@ $.fn.myCounter = function(){
 };
 
 $( "#umar-counter" ).myCounter();
-$( "#haathif-counter" ).myCounter();
-$( "#my-counter" ).myCounter();
