@@ -1,0 +1,36 @@
+.counter{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.btn {
+    float: left;
+    width: 50px;
+    height: 30px;
+    font-size: 25px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+}
+
+.incrementer {
+    background-color: green;
+    color: white;
+    border: 1px solid green
+}
+
+.decrementer {
+    background-color: red;
+    color: white;
+    font-size: 25px;
+    border: 1px solid red
+}
+
+.display-out {
+    background-color: white;
+    border: 1px solid lightgrey;
+    color: black;
+    line-height: normal
+}
