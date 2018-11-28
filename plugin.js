@@ -1,5 +1,5 @@
 (function($) {
-    $.fn.myCounter = function () {
+    $.fn.numberSpinner = function () {
         var inputValue = 0;
 
         /*creating the counter buttons*/
@@ -20,5 +20,3 @@
         })
     }
 }(jQuery));
-
-$( "#umar-counter" ).myCounter();
