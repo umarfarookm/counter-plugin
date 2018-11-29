@@ -9,7 +9,7 @@ Please see the styled spinner component as below,
 
 # Install
 
-`$ npm install html-number-spinner`
+`$ npm install html-number-spinner --save`
 
 # Usage
 
