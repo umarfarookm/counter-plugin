@@ -1,4 +1,4 @@
-#Number Spinner
+# Number Spinner
 
 *Simple html number spinner*
 
@@ -7,11 +7,11 @@ Please see the styled spinner component as below,
 
 ![](spinner.png)
 
-#Install
+# Install
 
 `$ npm install html-number-spinner`
 
-#Usage
+# Usage
 
 *Step 1:*
 
@@ -20,3 +20,7 @@ Please see the styled spinner component as below,
 *Step 2:*
 
     $('.counter').htmlNumberSpinner()
+    
+*You can get the spinner value like this*
+
+    $('.counter').getSpinnerValue()
