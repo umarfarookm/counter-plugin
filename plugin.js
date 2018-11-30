@@ -1,11 +1,15 @@
 (function($) {
     $.fn.htmlNumberSpinner = function () {
 
-        /* default value */
-        var inputValue = 0;
-
         /* creating the counter buttons */
         $(this).append("<div class='btn decrementer'>-</div> <input class='number-input' type='number'/> <div class='btn incrementer'>+</div>");
+
+
+        /* default value and variables and jquery elements*/
+        var defaultValue = 0, inputValue;
+        var numberInput$ = $(this).find('.number-input');
+        var incrementerEl$ = $(this).find('.incrementer');
+        var decrementerEl$ = $(this).find('.decrementer');
 
         /* hide the default number input spinner */
         $(this).append("<style>" +
@@ -18,10 +22,10 @@
             "}</style>");
 
         /* styling the counter buttons */
-        $(this).find('.btn').css({"float":"left", "width":"50px", "height":"30px", "font-size":"25px", "text-align":"center", "vertical-align":"middle", "line-height":"1", "cursor":"pointer", "user-select":"none"});
-        $(this).find('.incrementer').css({"background-color":"slateblue", "color":"white", "border": "1px solid slateblue"});
-        $(this).find('.decrementer').css({"background-color":"hotpink", "color":"white", "font-size":"25px", "border": "1px solid hotpink"});
-        $(this).find('.number-input').css({
+        $(this).find('.btn').css({"display":"inline-block", "width":"50px", "height":"30px", "font-size":"25px", "text-align":"center", "vertical-align":"middle", "line-height":"1", "cursor":"pointer", "user-select":"none"});
+        incrementerEl$.css({"background-color":"slateblue", "color":"white", "border": "1px solid slateblue"});
+        decrementerEl$.css({"background-color":"hotpink", "color":"white", "font-size":"25px", "border": "1px solid hotpink"});
+        numberInput$.css({
             "background-color":"white",
             "border": "1px solid",
             "color":"black",
@@ -38,25 +42,77 @@
         });
 
 
+        /* props - dynamic attributes */
+        var minAttributeValue = $(this).attr("min");
+        var maxAttributeValue = $(this).attr("max");
+        var stepAttributeValue = $(this).attr("step");
+
+        if(minAttributeValue){
+            numberInput$.attr("min",+minAttributeValue);
+        }
+
+        if(maxAttributeValue){
+            numberInput$.attr("max", +maxAttributeValue);
+        }
+
+        if(stepAttributeValue){
+            numberInput$.attr("step", +stepAttributeValue);
+        }
+
+
         /* set the default value into the input */
-        $(this).find('.number-input').val(inputValue);
+        inputValue = minAttributeValue ? minAttributeValue: defaultValue;
+        numberInput$.val(inputValue);
 
         /* incrementer functionality */
-        $(this).find('.incrementer').click(function () {
+        incrementerEl$.click(function () {
             var parentEl = $(this).parent();
+            inputValue = parentEl.find('.number-input').val();
+            if(maxAttributeValue){
+                if(maxAttributeValue==inputValue){
+                    return;
+                }
+            }
+            if(stepAttributeValue){
+                inputValue = parentEl.find('.number-input').val();
+                parentEl.find('.number-input').val((+inputValue)+(+stepAttributeValue));
+                return;
+            }
             inputValue = parentEl.find('.number-input').val();
             parentEl.find('.number-input').val(++inputValue);
         });
 
         /* decrementer functionality */
-        $(this).find('.decrementer').click(function () {
+        decrementerEl$.click(function () {
             var parentEl = $(this).parent();
+            inputValue = parentEl.find('.number-input').val();
+            if(minAttributeValue){
+                if(minAttributeValue==inputValue){
+                    return;
+                }
+            }
+            if(stepAttributeValue){
+                inputValue = parentEl.find('.number-input').val();
+                parentEl.find('.number-input').val((+inputValue)-(+stepAttributeValue));
+                return;
+            }
             inputValue = parentEl.find('.number-input').val();
             parentEl.find('.number-input').val(--inputValue);
         })
 
-        /* props - dynamic attributes */
-        
+        numberInput$.change(function () {
+            if(!maxAttributeValue || !minAttributeValue) return;
+            var currentValue = $(this).val();
+            if((+currentValue)>(+maxAttributeValue)){
+                $(this).val(maxAttributeValue)
+                return;
+            }
+            if((+currentValue)<(+minAttributeValue)){
+                $(this).val(minAttributeValue)
+                return;
+            }
+        })
+
     };
 
     $.fn.getSpinnerValue = function () {

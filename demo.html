@@ -4,11 +4,19 @@
     <meta charset="UTF-8">
     <title>Counter Plugin</title>
     <style>
-        .counter{
+        body{
+            font-family: sans-serif;
+        }
+
+        h4{
+            color: steelblue;
+        }
+        .counter {
             display: flex;
             margin-bottom: 20px;
         }
-        .c-btn{
+
+        .c1-btn,.c2-btn {
             width: 100px;
             height: 32px;
             background-color: orange;
@@ -18,31 +26,67 @@
             cursor: pointer;
             outline: none;
         }
-        .c-p{
-            color: gray;
-            font-size: 20px;
+
+        .c1-btn:hover,.c2-btn:hover{
+            background-color: #db8e00;
         }
-        .c-span{
+
+        .c1-p,.c2-p {
+            color: gray;
+            font-size: 16px;
+        }
+
+        .c1-span,.c2-span {
             color: green;
         }
     </style>
 </head>
 <body>
 
-<div id="umar-counter" class="counter"></div>
-<button class="c-btn" onclick="onBtnClick()">Get Value</button>
+<div class="counter1-container">
+    <h4>Number Input Spinner Without Attributes</h4>
+    <div id="counter-one" class="counter"></div>
+    <button class="c1-btn" onclick="onC1BtnClick()">Get Value</button>
+</div>
+<br/>
+<hr>
+<br/>
+<div class="counter2-container">
+    <h4>Number Input Spinner With Attributes - [min="5"] [max="10"] [step="0.5"]</h4>
+    <div id="counter-two" class="counter" min="5" max="10" step="0.5"></div>
+    <button class="c2-btn" onclick="onC2BtnClick()">Get Value</button>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 <script type="text/javascript" src="plugin.js"></script>
 <script type="text/javascript">
-    $("#umar-counter").htmlNumberSpinner();
-    $('body').append("<p class='c-p'>The Spinner Value is : <span class='c-span'>0</span></p>");
-    function onBtnClick(){
-        var value = $("#umar-counter").getSpinnerValue();
-        $('.c-p .c-span').text(value);
+
+    /*Start Number Input Spinner Without Attributes*/
+
+    $("#counter-one").htmlNumberSpinner();
+    $('.counter1-container').append("<p class='c1-p'>The Spinner Value is : <span class='c1-span'>-</span></p>");
+
+    function onC1BtnClick() {
+        var value = $("#counter-one").getSpinnerValue();
+        $('.c1-p .c1-span').text(value);
     }
+
+    /* End Number Input Spinner Without Attributes*/
+
+
+    /*Start Number Input Spinner With Attributes*/
+
+    $("#counter-two").htmlNumberSpinner();
+    $('.counter2-container').append("<p class='c2-p'>The Spinner Value is : <span class='c2-span'>-</span></p>");
+
+    function onC2BtnClick() {
+        var value = $("#counter-two").getSpinnerValue();
+        $('.c2-p .c2-span').text(value);
+    }
+
+    /*End Number Input Spinner With Attributes*/
 </script>
 </body>
 </html>

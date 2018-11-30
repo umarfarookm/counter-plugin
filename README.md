@@ -25,3 +25,17 @@ Please see the styled spinner component as below,
 
     $('.counter').getSpinnerValue()
 
+# Props
+
+   | Property | Value |
+   | ------------- | ------------- |
+   | min  | number  |
+   | max  | number  |
+   | step  | number  |
+   
+# Examples
+    
+    Example 1: <div class="counter"></div>
+    
+    Example 2: <div class="counter" min="5" max="5" step="0.5"></div>
+    
