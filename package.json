@@ -18,6 +18,10 @@
     "increment",
     "decrement",
     "spinner",
+    "html-number-spinner",
+    "number-spinner",
+    "number-input",
+    "html-number",
     "ecosystem:jquery"
   ],
   "author": "Umar Farook M",
