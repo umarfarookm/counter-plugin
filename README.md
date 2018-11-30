@@ -11,6 +11,10 @@ Please see the styled spinner component as below,
 
 `$ npm install html-number-spinner --save`
 
+# Demo
+
+##### [Click Here to see the demo]("https://counter-plugin-gihapkqufu.now.sh/demo")
+
 # Usage
 
 *Step 1:*
