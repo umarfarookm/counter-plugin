@@ -6,6 +6,8 @@
     <style>
         body{
             font-family: sans-serif;
+            padding: 0;
+            margin: 0;
         }
 
         h4{
@@ -39,52 +41,77 @@
         .c1-span,.c2-span {
             color: green;
         }
+        header, footer{
+            background-color: #80822f;
+            color: white;
+            padding: 10px;
+        }
+        header{
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        footer{
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+        footer a{
+            color: antiquewhite;
+        }
+        .container{
+            margin: 60px 30px;
+
+        }
     </style>
 </head>
 <body>
+    <header>Styled Number Input Spinner</header>
+    <div class="container">
+        <div class="counter1-container">
+            <h4>Number Input Spinner Without Attributes</h4>
+            <div id="counter-one" class="counter"></div>
+            <button class="c1-btn" onclick="onC1BtnClick()">Get Value</button>
+        </div>
+        <br/>
+        <hr>
+        <br/>
+        <div class="counter2-container">
+            <h4>Number Input Spinner With Attributes - [min="5"] [max="10"] [step="0.5"]</h4>
+            <div id="counter-two" class="counter" min="5" max="10" step="0.5"></div>
+            <button class="c2-btn" onclick="onC2BtnClick()">Get Value</button>
+        </div>
+    </div>
+    <footer> created by <a href="https://github.com/umarfarookm/counter-plugin" target="_blank">Umar Farook M</a></footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="plugin.js"></script>
+    <script type="text/javascript">
 
-<div class="counter1-container">
-    <h4>Number Input Spinner Without Attributes</h4>
-    <div id="counter-one" class="counter"></div>
-    <button class="c1-btn" onclick="onC1BtnClick()">Get Value</button>
-</div>
-<br/>
-<hr>
-<br/>
-<div class="counter2-container">
-    <h4>Number Input Spinner With Attributes - [min="5"] [max="10"] [step="0.5"]</h4>
-    <div id="counter-two" class="counter" min="5" max="10" step="0.5"></div>
-    <button class="c2-btn" onclick="onC2BtnClick()">Get Value</button>
-</div>
+        /*Start Number Input Spinner Without Attributes*/
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="plugin.js"></script>
-<script type="text/javascript">
+        $("#counter-one").htmlNumberSpinner();
+        $('.counter1-container').append("<p class='c1-p'>The Spinner Value is : <span class='c1-span'>-</span></p>");
 
-    /*Start Number Input Spinner Without Attributes*/
+        function onC1BtnClick() {
+            var value = $("#counter-one").getSpinnerValue();
+            $('.c1-p .c1-span').text(value);
+        }
 
-    $("#counter-one").htmlNumberSpinner();
-    $('.counter1-container').append("<p class='c1-p'>The Spinner Value is : <span class='c1-span'>-</span></p>");
-
-    function onC1BtnClick() {
-        var value = $("#counter-one").getSpinnerValue();
-        $('.c1-p .c1-span').text(value);
-    }
-
-    /* End Number Input Spinner Without Attributes*/
+        /* End Number Input Spinner Without Attributes*/
 
 
-    /*Start Number Input Spinner With Attributes*/
+        /*Start Number Input Spinner With Attributes*/
 
-    $("#counter-two").htmlNumberSpinner();
-    $('.counter2-container').append("<p class='c2-p'>The Spinner Value is : <span class='c2-span'>-</span></p>");
+        $("#counter-two").htmlNumberSpinner();
+        $('.counter2-container').append("<p class='c2-p'>The Spinner Value is : <span class='c2-span'>-</span></p>");
 
-    function onC2BtnClick() {
-        var value = $("#counter-two").getSpinnerValue();
-        $('.c2-p .c2-span').text(value);
-    }
+        function onC2BtnClick() {
+            var value = $("#counter-two").getSpinnerValue();
+            $('.c2-p .c2-span').text(value);
+        }
 
-    /*End Number Input Spinner With Attributes*/
-</script>
+        /*End Number Input Spinner With Attributes*/
+    </script>
 </body>
 </html>
