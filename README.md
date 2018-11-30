@@ -13,7 +13,7 @@ Please see the styled spinner component as below,
 
 # Demo
 
-##### [Click Here to see the demo]("https://counter-plugin-gihapkqufu.now.sh/demo")
+##### [Click Here to see the demo](https://counter-plugin-gihapkqufu.now.sh/demo)
 
 # Usage
 
