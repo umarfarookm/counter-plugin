@@ -39,3 +39,13 @@ Please see the styled spinner component as below,
     
     Example 2: <div class="counter" min="5" max="5" step="0.5"></div>
     
+    
+### Note:
+
+Please include the jquery in your html
+
+    npm i jquery
+    
+    or 
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
